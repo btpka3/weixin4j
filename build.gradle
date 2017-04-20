@@ -1,0 +1,123 @@
+buildscript {
+    ext {
+    }
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.1.RELEASE")
+    }
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: "io.spring.dependency-management"
+apply plugin: 'project-report'
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenCentral()
+}
+
+idea {
+    module {
+        downloadJavadoc = false
+        downloadSources = true
+    }
+}
+
+eclipse {
+    classpath {
+        downloadSources = true
+    }
+}
+
+dependencyManagement {
+    dependencies {
+        dependency('joda-time:joda-time:2.9.7')
+        dependency('com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.8.7')
+        dependency('org.apache.httpcomponents:httpclient:4.5.3')
+        dependency("org.apache.commons:commons-lang3:3.5")
+        dependency('org.slf4j:slf4j-api:1.7.24')
+        dependency('org.codehaus.groovy:groovy-json:2.4.9')
+        dependency('javax.validation:validation-api:1.1.0.Final')
+    }
+}
+
+
+bootRepackage {
+    enabled = false
+}
+
+bootRun {
+    addResources = true
+    systemProperties = System.properties
+}
+
+springBoot {
+    buildInfo {
+        additionalProperties = [
+                // 'foo': 'bar'
+        ]
+    }
+}
+
+jar {
+    manifest {
+        attributes "Implementation-Version": project.version
+    }
+}
+
+dependencies {
+    compile('org.codehaus.groovy:groovy')
+    compile('org.codehaus.groovy:groovy-json')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.security.oauth:spring-security-oauth2')
+    compile('javax.validation:validation-api')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.apache.httpcomponents:httpclient')
+    testCompile('org.springframework.boot:spring-boot-autoconfigure')
+    testCompile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
+    testCompile('org.springframework.boot:spring-boot-starter-web')
+}
+
+test {
+    testLogging.showStandardStreams = false
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+uploadArchives {
+    dependsOn assemble
+    repositories {
+        mavenDeployer {
+            repository(url: "http://mvn.kingsilk.xyz/content/repositories/releases/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            snapshotRepository(url: "http://mvn.kingsilk.xyz/content/repositories/snapshots/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+            //pom.version = "0.1.0-SNAPSHOT"
+            //pom.artifactId = "simple-project"
+            //pom.groupId = "com.example"
+        }
+    }
+}

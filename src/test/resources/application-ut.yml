@@ -1,0 +1,33 @@
+
+# LOGGING
+logging:
+  level:
+    org.apache.http.wire: DEBUG
+    net.kingsilk:         DEBUG
+
+# QcaStubProperties
+net.kingsilk.sms.dayu:
+  url:        http://gw.api.taobao.com/router/rest
+  appKey:     23377230
+  appSecret:  856241097193e5235f188bdfe49c8c41
+
+
+# UtProperties
+
+ut:
+  qhOAuth:
+    wap:
+      url:            https://login.kingsilk.net/local/14100/rs
+      accessTokenUrl: ${ut.qhOAuth.wap.url}/oauth/token
+      clientId:       CLIENT_ID_qh-oauth-wap
+      clientSecret:   CLIENT_PWD_qh-oauth-wap_123456
+      #scopes:
+      #  - SERVER
+  qhCommon:
+    admin:
+      resourceId: RSC_ID_qh-common-admin
+
+
+
+
+
