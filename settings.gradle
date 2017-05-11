@@ -1,2 +1,6 @@
-//rootProject.name = 'weixin4j-mp'
+rootProject.name = 'weixin4j-mp'
 
+include 'weixin4j-component'
+include 'weixin4j-core'
+include 'weixin4j-mp'
+include 'weixin4j-pay'
