@@ -29,6 +29,9 @@ dependencies {
     compile "io.springfox:springfox-staticdocs"
     compile 'io.springfox:springfox-swagger-ui'
 
+
+    compile 'org.glassfish.jersey.ext:jersey-spring3'
+    compile('org.springframework.boot:spring-boot-starter-jersey')
 }
 
 test {

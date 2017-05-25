@@ -1,5 +1,6 @@
 rootProject.name = 'weixin4j-mp'
 
+include 'weixin4j-broker/weixin4j-broker-api'
 include 'weixin4j-broker/weixin4j-broker-server'
 include 'weixin4j-broker/weixin4j-broker-stub'
 include 'weixin4j-component'
