@@ -1,8 +1,6 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
-import io.github.btpka3.wx4j.mp.api.WxMpApi
-import io.github.btpka3.wx4j.mp.api.BaseResp
 
 /**
  * 获取 access_token

@@ -1,8 +1,6 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
-import io.github.btpka3.wx4j.mp.api.BaseResp
-import io.github.btpka3.wx4j.mp.api.WxMpApi
 
 /**
  * 添加客服帐号
@@ -15,7 +13,6 @@ interface KfApi extends WxMpApi {
     String API_URI_del = "https://api.weixin.qq.com/customservice/kfaccount/del"
 
     String API_URI_list = "https://api.weixin.qq.com/cgi-bin/customservice/getkflist"
-
 
     String API_URI_update = "https://api.weixin.qq.com/customservice/kfaccount/update"
 

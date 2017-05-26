@@ -1,8 +1,6 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
-import io.github.btpka3.wx4j.mp.api.BaseResp
-import io.github.btpka3.wx4j.mp.api.WxMpApi
 
 /**
  * 创建分组

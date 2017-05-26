@@ -1,7 +1,6 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
-import io.github.btpka3.wx4j.mp.api.WxMpApi
 
 /**
  * 拉取用户信息(需scope为 snsapi_userinfo)
