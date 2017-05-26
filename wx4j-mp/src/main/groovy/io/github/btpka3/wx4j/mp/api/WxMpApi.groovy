@@ -1,11 +1,13 @@
-package io.github.btpka3.wx4j.mp.api;
+package io.github.btpka3.wx4j.mp.api
+
+import io.github.btpka3.wx4j.core.WxApi;
 
 /**
  *
  */
-interface WxMpApi<Query, Req, Resp> {
+interface WxMpApi extends WxApi {
 
-    Resp query(Query query, Req req);
+//    Resp query(Query query, Req req);
 
 //    String queryAsString(Query query, Req req)
 

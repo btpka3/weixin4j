@@ -1,21 +1,23 @@
-package io.github.btpka3.wx4j.mp.api.kf
+package io.github.btpka3.wx4j.mp.api
 
-import io.github.btpka3.wx4j.mp.api.WxMpApi
 import groovy.transform.CompileStatic
 
 /**
  * 删除客服帐号
  */
 @CompileStatic
-interface SendMsgApi extends WxMpApi<Query, Req, Void> {
+interface KsMsgApi extends WxMpApi {
 
-    String API_URI = "https://api.weixin.qq.com/cgi-bin/message/custom/send"
+    String API_URI_send = "https://api.weixin.qq.com/cgi-bin/message/custom/send"
 
-    static class Query {
-        String access_token
+
+    SendResp send(String access_token, SendReq sendReq)
+
+
+    static class SendResp extends BaseResp {
     }
 
-    static abstract class Req {
+    static abstract class SendReq {
 
         CustomService customservice
 
@@ -27,7 +29,7 @@ interface SendMsgApi extends WxMpApi<Query, Req, Void> {
     /**
      * 发送文本消息
      */
-    static class TextMsgReq extends Req {
+    static class TextMsgReq extends SendReq {
         String touser
         final String msgtype = "text"
         String text
@@ -36,7 +38,7 @@ interface SendMsgApi extends WxMpApi<Query, Req, Void> {
     /**
      * 发送图片消息
      */
-    static class ImageMsgReq extends Req {
+    static class ImageMsgReq extends SendReq {
         String touser
         final String msgtype = "image"
         Image image
@@ -49,7 +51,7 @@ interface SendMsgApi extends WxMpApi<Query, Req, Void> {
     /**
      * 发送语音消息
      */
-    static class VoiceMsgReq extends Req {
+    static class VoiceMsgReq extends SendReq {
         String touser
         final String msgtype = "voice"
         Voice voice
@@ -62,7 +64,7 @@ interface SendMsgApi extends WxMpApi<Query, Req, Void> {
     /**
      * 发送视频消息
      */
-    static class VedioMsgReq extends Req {
+    static class VedioMsgReq extends SendReq {
         String touser
         final String msgtype = "video"
         Voice video
@@ -75,7 +77,7 @@ interface SendMsgApi extends WxMpApi<Query, Req, Void> {
     /**
      * 发送音乐消息
      */
-    static class MusicMsgReq extends Req {
+    static class MusicMsgReq extends SendReq {
         String touser
         final String msgtype = "music"
         Music music
@@ -94,7 +96,7 @@ interface SendMsgApi extends WxMpApi<Query, Req, Void> {
      *
      * 图文消息条数限制在10条以内，注意，如果图文数超过10，则将会无响应。
      */
-    static class NewsMsgReq extends Req {
+    static class NewsMsgReq extends SendReq {
         String touser
         final String msgtype = "news"
         News news
@@ -118,7 +120,7 @@ interface SendMsgApi extends WxMpApi<Query, Req, Void> {
      *
      * 图文消息条数限制在10条以内，注意，如果图文数超过10，则将会无响应。
      */
-    static class WxCardMsgReq extends Req {
+    static class WxCardMsgReq extends SendReq {
         String touser
         final String msgtype = "wxcard"
         WxCard wxcard

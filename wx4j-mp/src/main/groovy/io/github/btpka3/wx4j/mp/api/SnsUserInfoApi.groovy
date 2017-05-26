@@ -1,29 +1,22 @@
-package io.github.btpka3.wx4j.mp.api.user
+package io.github.btpka3.wx4j.mp.api
 
-import io.github.btpka3.wx4j.mp.api.WxMpApi
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.api.WxMpApi
 
 /**
- * 获取用户基本信息（包括UnionID机制）
+ * 拉取用户信息(需scope为 snsapi_userinfo)
  */
 @CompileStatic
-interface GetUserInfoApi extends WxMpApi<Query, Void, Resp> {
+interface SnsUserInfoApi extends WxMpApi {
 
-    String API_URI = "https://api.weixin.qq.com/cgi-bin/user/info"
+    String API_URI_getUserInfo = "https://api.weixin.qq.com/sns/userinfo"
 
-    static class Query {
-        String access_token
-        String openid
-        String lang = "zh_CN"
-    }
+    // = "zh_CN"
+    GetUserInfoResp getUserInfo(String access_token,
+                                String openid,
+                                String lang)
 
-    static class Resp {
-
-        /**
-         * 用户是否订阅该公众号标识。
-         * 值为0时，代表此用户没有关注该公众号，拉取不到其余信息。
-         */
-        int subscribe
+    static class GetUserInfoResp {
 
         /**
          * 用户的标识，对当前公众号唯一
@@ -76,29 +69,14 @@ interface GetUserInfoApi extends WxMpApi<Query, Void, Resp> {
         String headimgurl
 
         /**
-         * 用户关注时间，为时间戳。
-         *
-         * 如果用户曾多次关注，则取最后关注时间
+         * 用户特权信息
          */
-        long subscribe_time
+        List<String> privilege
 
         /**
          * 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段
          */
         String unionid
-
-        /**
-         * 公众号运营者对粉丝的备注。
-         *
-         * 公众号运营者可在微信公众平台用户管理界面对粉丝添加备注
-         */
-        String remark
-
-        /**
-         * 用户所在的分组ID
-         */
-        long groupid
-
 
     }
 }

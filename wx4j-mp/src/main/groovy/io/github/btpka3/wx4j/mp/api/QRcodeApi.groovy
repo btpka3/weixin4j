@@ -1,21 +1,24 @@
-package io.github.btpka3.wx4j.mp.api.qrcode
+package io.github.btpka3.wx4j.mp.api
 
-import io.github.btpka3.wx4j.mp.api.WxMpApi
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.api.BaseResp
+import io.github.btpka3.wx4j.mp.api.WxMpApi
 
 /**
  * 创建二维码ticket
  */
 @CompileStatic
-interface CreateQRcodeApi extends WxMpApi<Query, Req, Void> {
+interface QRcodeApi extends WxMpApi {
 
-    String API_URI = "https://api.weixin.qq.com/cgi-bin/qrcode/create"
+    String API_URI_create = "https://api.weixin.qq.com/cgi-bin/qrcode/create"
+    String API_URI_getImg = "https://mp.weixin.qq.com/cgi-bin/showqrcode"
 
-    static class Query {
-        String access_token
-    }
+    CreateResp create(String access_token, CreateReq createReq)
 
-    static abstract class Req {
+    byte[] getImg(String ticket)
+
+
+    static abstract class CreateReq {
 
         /**
          * 二维码类型
@@ -46,7 +49,7 @@ interface CreateQRcodeApi extends WxMpApi<Query, Req, Void> {
         }
     }
 
-    static class TmpSceneReq extends Req {
+    static class TmpSceneReq extends CreateReq {
         /**
          * 该二维码有效时间，以秒为单位
          *
@@ -55,7 +58,13 @@ interface CreateQRcodeApi extends WxMpApi<Query, Req, Void> {
         int expire_seconds
     }
 
-    static class PersistSceneReq extends Req {
+    static class CreateResp extends BaseResp {
 
     }
+
+    static class PersistSceneReq extends CreateReq {
+
+    }
+
+
 }

@@ -1,34 +1,26 @@
-package io.github.btpka3.wx4j.mp.api.auth
+package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
 import io.github.btpka3.wx4j.mp.api.WxMpApi
+import io.github.btpka3.wx4j.mp.api.BaseResp
 
 /**
- * 刷新用户 access_token（如果需要）
+ * 获取 access_token
  */
 @CompileStatic
-interface RefreshUserAtApi extends WxMpApi<Query, Void, Resp> {
+interface AppAtApi extends WxMpApi {
 
-    String API_URI = "https://api.weixin.qq.com/sns/oauth2/refresh_token"
+    String API_URI_getAppAt = "https://api.weixin.qq.com/cgi-bin/token"
 
-    static class Query {
 
-        /**
-         * 公众号的唯一标识
-         */
-        String appid
+    GetAppAtResp getAppAt(
+            String grant_type,
+            String appid,
+            String secret
+    )
 
-        /**
-         * 授权类型。
-         *
-         * 填写为 "refresh_token"
-         */
-        String grant_type = "refresh_token"
 
-        String refresh_token
-    }
-
-    static class Resp {
+    class GetAppAtResp extends BaseResp {
 
         /**
          * 网页授权接口调用凭证
@@ -54,5 +46,12 @@ interface RefreshUserAtApi extends WxMpApi<Query, Void, Resp> {
          * 用户授权的作用域，使用逗号（,）分隔
          */
         String scope
+
+        /**
+         * 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段
+         */
+        String unionid
+
     }
+
 }

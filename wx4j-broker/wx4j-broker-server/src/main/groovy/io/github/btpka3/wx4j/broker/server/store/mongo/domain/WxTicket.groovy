@@ -106,11 +106,6 @@ class WxTicket extends Base {
         String jsApiTicket;
 
         /**
-         * jsapi_ticket 什么时间获取的
-         */
-        Date jatCreatedTime;
-
-        /**
          * jsapi_ticket 有效时间，单位：秒
          */
         Integer jatExpiresIn;
