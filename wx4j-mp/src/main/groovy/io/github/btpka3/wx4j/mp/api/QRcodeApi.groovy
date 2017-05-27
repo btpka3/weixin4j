@@ -1,6 +1,10 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.WxMpApi
+
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseReq
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
  * 创建二维码ticket
@@ -16,7 +20,7 @@ interface QRcodeApi extends WxMpApi {
     byte[] getImg(String ticket)
 
 
-    static abstract class CreateReq {
+    static abstract class CreateReq extends BaseReq {
 
         /**
          * 二维码类型

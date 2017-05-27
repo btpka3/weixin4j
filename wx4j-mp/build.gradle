@@ -4,33 +4,13 @@ dependencies {
     compile project(":wx4j-core")
 
     compile('org.codehaus.groovy:groovy-all')
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    compile("org.springframework.boot:spring-boot-devtools")
-    compile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
-    compile('org.apache.httpcomponents:httpclient')
+    compile('org.springframework:spring-web')
 
+    testCompile("org.springframework.boot:spring-boot-devtools")
+    testCompile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-
-    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-    compile('com.querydsl:querydsl-mongodb')
-    compile('com.querydsl:querydsl-apt')
-    compile('com.querydsl:querydsl-core')
-    compile('joda-time:joda-time')
-
-    compile('org.springframework.security:spring-security-jwt')
-    // compile('org.mongodb.morphia:morphia')
-    // querydslapt('com.querydsl:querydsl-apt')
-
-    compile "io.swagger:swagger-core"  // 1.5.12
-    compile "io.springfox:springfox-swagger2"
-    compile "io.springfox:springfox-spi"
-    compile "io.springfox:springfox-data-rest"
-    compile "io.springfox:springfox-staticdocs"
-    compile 'io.springfox:springfox-swagger-ui'
-
-    compile 'org.glassfish.jersey.ext:jersey-spring3'
-    compile('org.springframework.boot:spring-boot-starter-jersey')
+    testCompile('org.apache.httpcomponents:httpclient')
+    testCompile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
 }
 
 test {

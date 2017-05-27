@@ -1,6 +1,9 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.WxMpApi
+import io.github.btpka3.wx4j.mp.WxMpApi.BaseReq
+import io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
  * 查询所有分组
@@ -16,6 +19,16 @@ interface UserApi extends WxMpApi {
     // next_openid : 第一个拉取的OPENID，不填默认从头开始拉取
     ListResp list(String access_token, String next_openid)
 
+    /**
+     * 获取用户信息。
+     *
+     * 缺点：用户必须先关注微信公众号
+     *
+     * @param access_token
+     * @param openid
+     * @param lang
+     * @return
+     */
     InfoResp info(String access_token, String openid, String lang)
 
     InfosResp infos(String access_token, InfosReq infosReq)
@@ -23,14 +36,14 @@ interface UserApi extends WxMpApi {
     RemarkResp remark(String access_token, RemarkReq remarkReq)
 
 
-    static class RemarkReq {
+    static class RemarkReq extends BaseReq {
         String openid
         String remark
     }
 
     static class RemarkResp extends BaseResp {}
 
-    static class ListResp {
+    static class ListResp extends BaseResp {
 
         /**
          * 关注该公众账号的总用户数
@@ -145,7 +158,7 @@ interface UserApi extends WxMpApi {
     }
 
 
-    static class InfosReq {
+    static class InfosReq extends BaseReq {
         List<User> user_list
 
         static class User {

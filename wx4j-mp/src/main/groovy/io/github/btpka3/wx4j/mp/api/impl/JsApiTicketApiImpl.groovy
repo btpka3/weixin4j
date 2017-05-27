@@ -1,44 +1,44 @@
 package io.github.btpka3.wx4j.mp.api.impl
 
-import io.github.btpka3.wx4j.mp.api.AppAtApi
+import io.github.btpka3.wx4j.mp.api.JsApiTicketApi
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.util.Assert
 import org.springframework.web.client.RestOperations
 import org.springframework.web.util.UriComponentsBuilder
 
-import static io.github.btpka3.wx4j.mp.api.AppAtApi.GetAppAtResp
+import static io.github.btpka3.wx4j.mp.api.JsApiTicketApi.GetTicketResp
 
 /**
  *
  */
-class AppAtApiImpl implements AppAtApi {
+class JsApiTicketApiImpl implements JsApiTicketApi {
+
 
     RestOperations restTemplate
 
-    AppAtApiImpl(RestOperations restTemplate) {
+    JsApiTicketApiImpl(RestOperations restTemplate) {
         this.restTemplate = restTemplate
     }
 
     @Override
-    GetAppAtResp getAppAt(String appid, String secret) {
+    GetTicketResp getTicket(String access_token) {
 
-        // client_credential
-        URI uri = UriComponentsBuilder.fromHttpUrl(API_URI_getAppAt)
-                .queryParam('grant_type', "client_credential")
-                .queryParam('appid', appid)
-                .queryParam('secret', secret)
+        URI uri = UriComponentsBuilder.fromHttpUrl(API_URI_getTicket)
+                .queryParam('access_token', access_token)
+                .queryParam('type', "jsapi")
                 .build()
                 .encode("UTF-8")
                 .toUri()
 
-        ResponseEntity<GetAppAtResp> respEntity = restTemplate.getForEntity(uri, GetAppAtResp)
+        ResponseEntity<GetTicketResp> respEntity = restTemplate.getForEntity(uri, GetTicketResp)
 
         Assert.isTrue(HttpStatus.OK == respEntity.getStatusCode(),
                 "调用微信API异常。响应状态码:  ${respEntity.getStatusCode().value()} ")
         Assert.isTrue(respEntity.body as boolean, "微信API响应内容为空")
 
-        GetAppAtResp resp = respEntity.body
+
+        GetTicketResp resp = respEntity.body
 
         Assert.isTrue(resp.errcode == null || resp.errcode == 0,
                 resp.errmsg ?: "调用微信API异常，错误码 - " + resp.errcode)

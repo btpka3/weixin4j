@@ -1,6 +1,9 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.WxMpApi
+
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
  * 获取 access_token
@@ -12,13 +15,12 @@ interface AppAtApi extends WxMpApi {
 
 
     GetAppAtResp getAppAt(
-            String grant_type,
             String appid,
             String secret
     )
 
 
-    class GetAppAtResp extends BaseResp {
+    static class GetAppAtResp extends BaseResp {
 
         /**
          * 网页授权接口调用凭证

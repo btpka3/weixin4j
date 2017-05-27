@@ -1,6 +1,10 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.WxMpApi
+
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseReq
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
  * 创建分组
@@ -33,7 +37,7 @@ interface UserGroupApi extends WxMpApi {
 
     BatchChangeResp batchChange(String access_token, BatchChangeReq batchChangeReq)
 
-    static class BatchChangeReq {
+    static class BatchChangeReq extends BaseReq {
 
         List<String> openid_list
 

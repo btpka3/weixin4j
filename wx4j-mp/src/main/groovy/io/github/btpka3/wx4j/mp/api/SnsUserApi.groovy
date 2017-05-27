@@ -1,21 +1,34 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.WxMpApi
+
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
  * 拉取用户信息(需scope为 snsapi_userinfo)
  */
 @CompileStatic
-interface SnsUserInfoApi extends WxMpApi {
+interface SnsUserApi extends WxMpApi {
 
-    String API_URI_getUserInfo = "https://api.weixin.qq.com/sns/userinfo"
+    String API_URI_info = "https://api.weixin.qq.com/sns/userinfo"
 
-    // = "zh_CN"
-    GetUserInfoResp getUserInfo(String access_token,
-                                String openid,
-                                String lang)
+    // lang = "zh_CN"
+    /**
+     * 获取用户的信息。
+     * 优点：用户无需关注微公众号
+     * 缺点：用户必须手动点击授权按钮
+     *
+     * @param access_token 代表用户授权的 at
+     * @param openid
+     * @param lang
+     * @return
+     */
+    InfoResp info(String access_token,
+                  String openid,
+                  String lang)
 
-    static class GetUserInfoResp {
+    static class InfoResp extends BaseResp {
 
         /**
          * 用户的标识，对当前公众号唯一

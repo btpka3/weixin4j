@@ -1,6 +1,10 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.WxMpApi
+
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseReq
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
  * 删除客服帐号
@@ -17,7 +21,7 @@ interface KsMsgApi extends WxMpApi {
     static class SendResp extends BaseResp {
     }
 
-    static abstract class SendReq {
+    static abstract class SendReq extends BaseReq {
 
         CustomService customservice
 

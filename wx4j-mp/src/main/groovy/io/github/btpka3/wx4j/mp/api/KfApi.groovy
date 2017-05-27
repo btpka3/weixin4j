@@ -1,6 +1,10 @@
 package io.github.btpka3.wx4j.mp.api
 
 import groovy.transform.CompileStatic
+import io.github.btpka3.wx4j.mp.WxMpApi
+
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseReq
+import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
  * 添加客服帐号
@@ -18,11 +22,6 @@ interface KfApi extends WxMpApi {
 
     String API_URI_uploadHeadImg = "XXX"
 
-    static class UpdateReq {
-        String kf_account
-        String nickname
-        String password
-    }
 
     AddResp add(String access_token, AddReq addReq)
 
@@ -38,7 +37,7 @@ interface KfApi extends WxMpApi {
             byte[] imgBytes)
 
 
-    static class AddReq {
+    static class AddReq extends BaseReq {
         String kf_account
         String nickname
         String password
@@ -47,7 +46,7 @@ interface KfApi extends WxMpApi {
     static class AddResp extends BaseResp {
     }
 
-    static class DelReq {
+    static class DelReq extends BaseReq {
         String kf_account
         String nickname
         String password
@@ -56,7 +55,7 @@ interface KfApi extends WxMpApi {
     static class DelResp extends BaseResp {
     }
 
-    static class ListResp {
+    static class ListResp extends BaseResp {
 
         List<Kf> kf_list
 
@@ -79,6 +78,12 @@ interface KfApi extends WxMpApi {
 
             String kf_headimgurl
         }
+    }
+
+    static class UpdateReq extends BaseReq {
+        String kf_account
+        String nickname
+        String password
     }
 
     static class UpdateResp extends BaseResp {
