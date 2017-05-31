@@ -1,7 +1,8 @@
 package io.github.btpka3.wx4j.mp
 
 import groovy.json.JsonOutput
-import io.github.btpka3.wx4j.core.WxApi;
+import io.github.btpka3.wx4j.core.WxApi
+import org.springframework.util.Assert;
 
 /**
  *
@@ -35,6 +36,11 @@ interface WxMpApi extends WxApi {
         @Override
         String toString() {
             return JsonOutput.toJson(this)
+        }
+
+        void check() {
+            Assert.isTrue(this.errcode == null || this.errcode == 0,
+                    this.errmsg ?: "调用微信API异常，错误码 - " + this.errcode)
         }
     }
 

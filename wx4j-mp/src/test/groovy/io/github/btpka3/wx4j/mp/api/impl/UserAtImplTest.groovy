@@ -1,7 +1,6 @@
 package io.github.btpka3.wx4j.mp.api.impl
 
 import io.github.btpka3.wx4j.mp.BaseTest
-import io.github.btpka3.wx4j.mp.api.AppAtApi
 import io.github.btpka3.wx4j.mp.api.UserAtApi.GetUserAtResp
 import org.junit.Test
 
@@ -20,7 +19,7 @@ class UserAtImplTest extends BaseTest {
         // 注意：该网址需要在微信公众号管理后台中 网页授权域 中设置的域名保持一致
         String redirectUrl = "https://kingsilk.net/testAuth"
 
-        String authUrl = userAtApi.createAuthUrl(
+        String authUrl = userAtApi.createUserAuthUrl(
                 appId,
                 redirectUrl,
                 "snsapi_userinfo",

@@ -1,13 +1,13 @@
-package io.github.btpka3.wx4j.com
+package io.github.btpka3.wx4j.qy
 
 import groovy.json.JsonOutput
 import io.github.btpka3.wx4j.core.WxApi
 import org.springframework.util.Assert;
 
 /**
- * 微信 - 开放平台 - 第三方平台相关的API。
+ * 微信企业号相关API。
  */
-interface WxComApi extends WxApi {
+interface WxQyApi extends WxApi {
 
     /**
      *
@@ -29,7 +29,7 @@ interface WxComApi extends WxApi {
 
         public static final long serialVersionUID = 1L
 
-        Integer errcode
+        int errcode
         String errmsg
 
         /**

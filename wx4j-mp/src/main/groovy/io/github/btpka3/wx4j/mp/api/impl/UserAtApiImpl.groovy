@@ -23,7 +23,7 @@ class UserAtApiImpl implements UserAtApi {
 
 
     @Override
-    String createAuthUrl(
+    String createUserAuthUrl(
             String appid,
             String redirect_uri,
 //            String response_type,
@@ -62,8 +62,7 @@ class UserAtApiImpl implements UserAtApi {
 
         IsValidResp resp = respEntity.body
 
-        Assert.isTrue(resp.errcode == null || resp.errcode == 0,
-                resp.errmsg ?: "调用微信API异常，错误码 - " + resp.errcode)
+        resp.check()
 
         return resp
     }
@@ -91,8 +90,7 @@ class UserAtApiImpl implements UserAtApi {
 
         RefreshResp resp = respEntity.body
 
-        Assert.isTrue(resp.errcode == null || resp.errcode == 0,
-                resp.errmsg ?: "调用微信API异常，错误码 - " + resp.errcode)
+        resp.check()
 
         return resp
     }
@@ -130,8 +128,7 @@ class UserAtApiImpl implements UserAtApi {
 
         GetUserAtResp resp = respEntity.body
 
-        Assert.isTrue(resp.errcode == null || resp.errcode == 0,
-                resp.errmsg ?: "调用微信API异常，错误码 - " + resp.errcode)
+        resp.check()
 
         return resp
     }

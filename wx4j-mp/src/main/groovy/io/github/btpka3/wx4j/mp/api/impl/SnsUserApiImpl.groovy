@@ -39,8 +39,7 @@ class SnsUserApiImpl implements SnsUserApi {
 
         InfoResp resp = respEntity.body
 
-        Assert.isTrue(resp.errcode == null || resp.errcode == 0,
-                resp.errmsg ?: "调用微信API异常，错误码 - " + resp.errcode)
+        resp.check()
 
         return resp
     }

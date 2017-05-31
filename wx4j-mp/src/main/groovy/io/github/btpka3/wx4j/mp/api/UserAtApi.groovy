@@ -30,7 +30,7 @@ interface UserAtApi extends WxMpApi {
      * @param state 最多128字节
      * @return
      */
-    String createAuthUrl(
+    String createUserAuthUrl(
             String appid,
             String redirect_uri,
 //            String response_type,
