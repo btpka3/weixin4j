@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate
  * @see UriComponentsBuilder
  */
 @CompileStatic
+@Deprecated
 class WxComApiFactory {
 
 

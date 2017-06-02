@@ -6,6 +6,7 @@ import groovy.transform.CompileStatic
  * 获取第三方平台component_access_token
  */
 @CompileStatic
+@Deprecated
 interface ComponentTokenApi extends WxComApi<Void, Req, Resp> {
 
     String API_URI = "https://api.weixin.qq.com/cgi-bin/component/api_component_token"

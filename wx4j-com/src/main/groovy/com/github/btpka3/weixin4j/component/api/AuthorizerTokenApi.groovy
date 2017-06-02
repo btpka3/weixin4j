@@ -6,6 +6,7 @@ import groovy.transform.CompileStatic
  * 获获取（刷新）授权公众号或小程序的接口调用凭据（令牌）
  */
 @CompileStatic
+@Deprecated // AppAtApi#preAuth
 interface AuthorizerTokenApi extends WxComApi<Query, Req, Resp> {
 
     String API_URI = "https://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode?component_access_token=xxx"

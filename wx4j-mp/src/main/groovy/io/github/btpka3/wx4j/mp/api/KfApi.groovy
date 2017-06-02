@@ -13,20 +13,21 @@ import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 interface KfApi extends WxMpApi {
 
     String API_URI_add = "https://api.weixin.qq.com/customservice/kfaccount/add"
-
     String API_URI_del = "https://api.weixin.qq.com/customservice/kfaccount/del"
-
     String API_URI_list = "https://api.weixin.qq.com/cgi-bin/customservice/getkflist"
-
     String API_URI_update = "https://api.weixin.qq.com/customservice/kfaccount/update"
-
-    String API_URI_uploadHeadImg = "XXX"
+    String API_URI_uploadHeadImg = "http://api.weixin.qq.com/customservice/kfaccount/uploadheadimg"
 
 
     AddResp add(String access_token, AddReq addReq)
 
     DelResp del(String access_token, DelReq delReq)
 
+    /**
+     * 获取所有客服账号
+     * @param access_token
+     * @return
+     */
     ListResp list(String access_token)
 
     UpdateResp update(String access_token, UpdateReq updateReq)
@@ -34,7 +35,8 @@ interface KfApi extends WxMpApi {
     UploadHeadImgResp uploadHeadImg(
             String access_token,
             String kf_account,
-            byte[] imgBytes)
+            byte[] imgBytes
+    )
 
 
     static class AddReq extends BaseReq {

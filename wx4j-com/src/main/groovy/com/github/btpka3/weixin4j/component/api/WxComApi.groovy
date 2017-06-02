@@ -3,6 +3,7 @@ package com.github.btpka3.weixin4j.component.api;
 /**
  *
  */
+@Deprecated
 interface WxComApi<Query, Req, Resp> {
 
     Resp query(Query query, Req req);

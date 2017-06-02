@@ -12,6 +12,7 @@ import static com.github.btpka3.weixin4j.component.api.AuthorizerTokenApi.*
  *
  */
 @CompileStatic
+@Deprecated
 class AuthorizerTokenApiImpl implements AuthorizerTokenApi {
 
 

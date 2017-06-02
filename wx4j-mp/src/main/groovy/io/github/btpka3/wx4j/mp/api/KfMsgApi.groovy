@@ -7,10 +7,10 @@ import static io.github.btpka3.wx4j.mp.WxMpApi.BaseReq
 import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
- * 删除客服帐号
+ * 客服接口-发消息
  */
 @CompileStatic
-interface KsMsgApi extends WxMpApi {
+interface KfMsgApi extends WxMpApi {
 
     String API_URI_send = "https://api.weixin.qq.com/cgi-bin/message/custom/send"
 

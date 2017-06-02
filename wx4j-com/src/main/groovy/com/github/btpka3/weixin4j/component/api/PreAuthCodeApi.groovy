@@ -6,6 +6,7 @@ import groovy.transform.CompileStatic
  * 获取预授权码pre_auth_code
  */
 @CompileStatic
+@Deprecated
 interface PreAuthCodeApi {
 
 

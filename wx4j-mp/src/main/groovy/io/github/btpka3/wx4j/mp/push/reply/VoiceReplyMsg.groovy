@@ -9,11 +9,15 @@ class VoiceReplyMsg implements ReplyMsg {
 
     String ToUserName
     String FromUserName
-    String CreateTime
+    Long CreateTime
     final String MsgType = "voice"
 
-    /**
-     * 通过素材管理接口上传多媒体文件，得到的id
-     */
-    String MediaId
+    Voice Voice
+
+    public static class Voice {
+        /**
+         * 通过素材管理接口上传多媒体文件，得到的id
+         */
+        String MediaId
+    }
 }

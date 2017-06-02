@@ -6,6 +6,7 @@ import groovy.transform.CompileStatic
  * 获获取（刷新）授权公众号或小程序的接口调用凭据（令牌） - 小程序
  */
 @CompileStatic
+@Deprecated // AppApi#getOption
 interface GetAuthorizerInfo4WxMiniProgramApi extends WxComApi<Query, Req, Resp> {
 
     String API_URI = "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info"

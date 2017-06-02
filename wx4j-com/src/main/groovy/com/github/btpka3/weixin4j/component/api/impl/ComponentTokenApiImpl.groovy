@@ -13,6 +13,7 @@ import static com.github.btpka3.weixin4j.component.api.ComponentTokenApi.Resp
  *
  */
 @CompileStatic
+@Deprecated
 class ComponentTokenApiImpl implements ComponentTokenApi {
 
     private RestTemplate restTemplate

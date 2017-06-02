@@ -9,20 +9,20 @@ class NewsMsg implements ReplyMsg {
 
     String ToUserName
     String FromUserName
-    String CreateTime
+    Long CreateTime
     final String MsgType = "news"
 
     /**
      * 图文消息个数，限制为10条以内
      */
-    int ArticleCount
+    Integer ArticleCount
 
-    List<Article> articles
+    List<item> articles
 
     /**
      * 图文消息
      */
-    static class Article {
+    static class item {
 
         /**
          * 图文消息标题

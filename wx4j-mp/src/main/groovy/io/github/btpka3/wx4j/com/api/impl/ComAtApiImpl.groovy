@@ -43,7 +43,6 @@ class ComAtApiImpl implements ComAtApi {
                 "调用微信API异常。响应状态码:  ${respEntity.getStatusCode().value()} ")
         Assert.isTrue(respEntity.body as boolean, "微信API响应内容为空")
 
-
         GetComAtResp resp = respEntity.getBody()
 
         resp.check()

@@ -9,7 +9,7 @@ class TextReplyMsg implements ReplyMsg {
 
     String ToUserName
     String FromUserName
-    String CreateTime
+    Long CreateTime
     final String MsgType = "text"
 
     /**

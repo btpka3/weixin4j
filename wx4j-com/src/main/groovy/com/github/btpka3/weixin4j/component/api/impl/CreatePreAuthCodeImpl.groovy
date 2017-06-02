@@ -10,6 +10,7 @@ import org.springframework.web.util.UriComponentsBuilder
  * Created by zll on 10/05/2017.
  */
 @CompileStatic
+@Deprecated
 class CreatePreAuthCodeImpl implements PreAuthCodeApi {
 
     private RestTemplate restTemplate

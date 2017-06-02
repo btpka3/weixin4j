@@ -9,7 +9,7 @@ class ImageReplyMsg implements ReplyMsg {
 
     String ToUserName
     String FromUserName
-    String CreateTime
+    Long CreateTime
     final String MsgType = "image"
     String MsgId
 

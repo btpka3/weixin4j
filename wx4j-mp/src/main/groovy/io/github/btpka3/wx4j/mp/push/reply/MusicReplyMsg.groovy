@@ -9,32 +9,37 @@ class MusicReplyMsg implements ReplyMsg {
 
     String ToUserName
     String FromUserName
-    String CreateTime
+    Long CreateTime
     final String MsgType = "music"
 
-    /**
-     * 音乐标题
-     */
-    String Title
+    Music Music
 
-    /**
-     * 音乐描述
-     */
-    String Description
+    public static class Music {
+        /**
+         * 音乐标题
+         */
+        String Title
 
-    /**
-     * 音乐链接
-     */
-    String MusicURL
+        /**
+         * 音乐描述
+         */
+        String Description
 
-    /**
-     * 高质量音乐链接，WIFI环境优先使用该链接播放音乐
-     */
-    String HQMusicUrl
+        /**
+         * 音乐链接
+         */
+        String MusicURL
 
-    /**
-     * 缩略图的媒体id，通过素材管理接口上传多媒体文件，得到的id
-     */
-    String ThumbMediaId
+        /**
+         * 高质量音乐链接，WIFI环境优先使用该链接播放音乐
+         */
+        String HQMusicUrl
+
+        /**
+         * 缩略图的媒体id，通过素材管理接口上传多媒体文件，得到的id
+         */
+        String ThumbMediaId
+    }
+
 
 }

@@ -7,6 +7,12 @@ import io.github.btpka3.wx4j.mp.push.msg.EventMsg
  */
 class LocationEvent extends EventMsg {
 
+    String ToUserName
+    String FromUserName
+    Long CreateTime
+    final String MsgType = "event"
+    final String Event = "LOCATION"
+
     /**
      * 地理位置纬度
      */
