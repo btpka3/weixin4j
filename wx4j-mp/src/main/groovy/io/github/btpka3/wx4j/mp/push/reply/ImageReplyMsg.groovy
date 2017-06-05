@@ -11,7 +11,7 @@ class ImageReplyMsg implements ReplyMsg {
     String FromUserName
     Long CreateTime
     final String MsgType = "image"
-    String MsgId
+    Long MsgId
 
     static class Image {
 

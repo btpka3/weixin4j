@@ -7,7 +7,7 @@ import static io.github.btpka3.wx4j.mp.WxMpApi.BaseReq
 import static io.github.btpka3.wx4j.mp.WxMpApi.BaseResp
 
 /**
- * 添加客服帐号
+ * 客服帐号管理
  */
 @CompileStatic
 interface KfApi extends WxMpApi {
@@ -19,8 +19,18 @@ interface KfApi extends WxMpApi {
     String API_URI_uploadHeadImg = "http://api.weixin.qq.com/customservice/kfaccount/uploadheadimg"
 
 
+    /**
+     * 添加客服帐号
+     */
     AddResp add(String access_token, AddReq addReq)
 
+    /**
+     * 删除客服帐号
+     *
+     * @param access_token
+     * @param delReq
+     * @return
+     */
     DelResp del(String access_token, DelReq delReq)
 
     /**
@@ -30,8 +40,22 @@ interface KfApi extends WxMpApi {
      */
     ListResp list(String access_token)
 
+    /**
+     * 修改客服帐号
+     * @param access_token
+     * @param updateReq
+     * @return
+     */
     UpdateResp update(String access_token, UpdateReq updateReq)
 
+    /**
+     * 设置客服帐号的头像
+     *
+     * @param access_token
+     * @param kf_account
+     * @param imgBytes
+     * @return
+     */
     UploadHeadImgResp uploadHeadImg(
             String access_token,
             String kf_account,

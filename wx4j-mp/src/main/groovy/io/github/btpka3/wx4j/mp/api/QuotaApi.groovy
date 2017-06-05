@@ -20,12 +20,7 @@ interface QuotaApi extends WxMpApi {
             String secret
     )
 
-    static class ClearReq extends BaseReq {
-        String appid
-    }
-
     static class ClearResp extends BaseResp {
-
 
     }
 

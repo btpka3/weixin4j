@@ -15,9 +15,34 @@ import javax.xml.bind.annotation.XmlRootElement
 @CompileStatic
 interface MediaApi extends WxMpApi {
 
+    String API_URI_upload = "https://api.weixin.qq.com/cgi-bin/media/upload"
+    String API_URI_getTmp = "https://api.weixin.qq.com/cgi-bin/media/get"
     String API_URI_uploadImg = "https://api.weixin.qq.com/cgi-bin/media/uploadimg"
     String API_URI_uploadNews = "https://api.weixin.qq.com/cgi-bin/media/uploadnews"
     String API_URI_uploadVideo = "https://api.weixin.qq.com/cgi-bin/media/uploadvideo"
+
+    /**
+     * 新增临时素材
+     *
+     * @param type
+     *  image - 图片，2M，支持PNG\JPEG\JPG\GIF格式
+     *  voice - 语音，2M，播放长度不超过60s，支持AMR\MP3格式，8K采样率
+     *  video - 视频，10MB，支持MP4格式
+     *  thumb - 缩略图，64KB，支持JPG格式
+     */
+    UploadResp upload(
+            String access_token,
+            String type,
+            Resource media
+    )
+
+    /**
+     * 获取临时素材
+     */
+    GetResp get(
+            String access_token,
+            String media_id
+    )
 
     /**
      * 使用FORM表单上传图文消息内的图片获取URL
@@ -47,6 +72,19 @@ interface MediaApi extends WxMpApi {
             String access_token, // FIXME
             UploadVideoReq uploadVideoReq
     )
+
+
+    static class GetResp extends BaseResp {
+        String type
+        String media_id
+        Long created_at
+    }
+
+    static class UploadResp extends BaseResp {
+        String type
+        String media_id
+        Long created_at
+    }
 
     static class UploadVideoResp extends BaseResp {
         String type

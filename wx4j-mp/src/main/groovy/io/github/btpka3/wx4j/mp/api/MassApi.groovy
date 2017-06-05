@@ -17,7 +17,7 @@ interface MassApi extends WxMpApi {
     String API_URI_preview = "https://api.weixin.qq.com/cgi-bin/message/mass/preview"
 
 
-    ByTagResp bytTag(
+    ByTagResp byTag(
             String access_token,
             ByTagReq byTagReq
     )
