@@ -11,6 +11,7 @@ interface JsApiTicketApi extends WxMpApi {
 
     String API_URI_getTicket = "https://api.weixin.qq.com/cgi-bin/ticket/getticket"
 
+    // ----------------------------------------------
     GetTicketResp getTicket(String access_token)
 
     static class GetTicketResp extends BaseResp {

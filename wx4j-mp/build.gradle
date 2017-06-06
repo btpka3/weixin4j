@@ -1,7 +1,7 @@
 apply plugin: 'groovy'
 
 dependencies {
-    compile project(":wx4j-core")
+//    compile project(":wx4j-core")
 
     compile('org.codehaus.groovy:groovy-all')
     compile('org.springframework:spring-web')

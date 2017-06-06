@@ -14,11 +14,11 @@ interface AppAtApi extends WxMpApi {
     String API_URI_getAppAt = "https://api.weixin.qq.com/cgi-bin/token"
 
 
+    // ----------------------------------------------
     GetAppAtResp getAppAt(
             String appid,
             String secret
     )
-
 
     static class GetAppAtResp extends BaseResp {
 
